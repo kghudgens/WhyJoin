@@ -18,6 +18,6 @@ from django.urls import path
 from django.urls.conf import include
 
 urlpatterns = [
-    path("", include("community.urls")),
+    path("community/", include("community.urls")),
     path('admin/', admin.site.urls),
 ]
