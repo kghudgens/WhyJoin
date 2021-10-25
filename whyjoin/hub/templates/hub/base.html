@@ -1,3 +1,4 @@
+{%load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -21,18 +22,20 @@
       aria-label="Second navbar example"
     >
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">Why Join</a>
+        <a class="navbar-brand" href="{% url 'index' %}">Why Join</a>
 
         <div class="collapse navbar-collapse" id="navbarsExample02">
           <ul class="navbar-nav me-auto">
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="#">Home</a>
+              <a class="nav-link" aria-current="page" href="{% url 'index' %}"
+                >Home</a
+              >
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Community</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
+              <a class="nav-link" href="{% url 'about' %}">About</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Discussion</a>
