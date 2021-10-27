@@ -2,7 +2,7 @@
 
 # Why Join
 
-Full stack web application made with ReactJs and The Django Framework.
+Full stack web application made with the Django Framework.
 
 Created to give recruits a chance to speak with service members about their day to day life. Giving the recruit a real look into what their life could be like in the military.
 
