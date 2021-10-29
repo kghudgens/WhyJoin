@@ -1,6 +1,7 @@
 """ The models representing all the data in the community application. """
 from django.db import models
 from django.contrib.auth.models import User
+from django.db.models.fields.related import ForeignKey
 
 branch_choices = [("USMC", "United States Marine Corps"),
                   ("USA", "United States Army"),
@@ -38,3 +39,6 @@ class CommunityForums(models.Model):
     title = models.CharField(max_length=200)
     content = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
+    # Forum now connected to the community it was originally meant for
+    forum_branch = models.ForeignKey(
+        CommunityBranch, on_delete=models.CASCADE, default=0)
