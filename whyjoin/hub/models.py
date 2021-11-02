@@ -14,6 +14,9 @@ class Post(models.Model):
     # Using the timezone library, can give the users post an automatic time
     created_date = models.DateTimeField(default=timezone.now())
 
+    class Meta:
+        ordering = ["created_date"]
+
     def __str__(self):
         return f'Author : {self.author} Post : {self.title}'
 
