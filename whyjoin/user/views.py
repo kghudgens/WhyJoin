@@ -5,3 +5,7 @@ from django.contrib.auth.views import LoginView, LogoutView
 
 class Login(LoginView):
     template_name = 'user/login.html'
+
+
+class Logout(LogoutView):
+    template_name = 'user/logout.html'
