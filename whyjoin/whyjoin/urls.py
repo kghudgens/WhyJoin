@@ -18,9 +18,11 @@ from django.conf import settings
 from django.urls import path
 from django.urls.conf import include
 from django.conf.urls.static import static
+from user import views as user_views
 
 urlpatterns = [
     path("", include("hub.urls")),
     path("community/", include("community.urls")),
     path('admin/', admin.site.urls),
+    path('login/', user_views.Login.as_view(), name='login')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
