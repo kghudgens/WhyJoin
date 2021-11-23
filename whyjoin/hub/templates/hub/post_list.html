@@ -1,0 +1,11 @@
+{% extends "hub/base.html" %} {% block content %}
+<h2>Post</h2>
+<ul>
+    {%for post in object_list%}
+        <li>{{post.title}}</li>
+        <li>{{post.author}}</li>
+        <li>{{post.text}}</li>
+        <li>{{post.created_date}}</li>
+    {%endfor%}
+</ul>
+{%endblock%}
