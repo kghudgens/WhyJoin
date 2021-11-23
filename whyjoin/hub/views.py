@@ -1,8 +1,8 @@
 """ This module contains all of the views for the Hub app """
 from django.shortcuts import render
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 
-from .models import Post
+from .models import Comments, Post
 
 
 def index(request):
@@ -18,3 +18,13 @@ def about(request):
 class PostListView(ListView):
 
     model = Post
+
+
+class PostDetailView(DetailView):
+
+    model = Post
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["comments"] = Comments.objects.all()
+        return context
