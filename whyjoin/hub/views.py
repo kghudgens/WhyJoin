@@ -18,6 +18,7 @@ def about(request):
 class PostListView(ListView):
 
     model = Post
+    template_name = 'hub/post_list.html'
 
 
 class PostDetailView(DetailView):
