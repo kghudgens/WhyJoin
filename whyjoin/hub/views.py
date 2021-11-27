@@ -16,13 +16,20 @@ def about(request):
 
 
 class PostListView(ListView):
-
+    """
+    Class based view that queries the Post model for hub blog objects. The view 
+    displays all objects on the template.
+    """
     model = Post
     template_name = 'hub/post_list.html'
 
 
 class PostDetailView(DetailView):
-
+    """
+    Class based view that displays the particular post object being choosen by 
+    the user. The view also queries the Comments model to display along side 
+    the Post it is assigned.
+    """
     model = Post
     template_name = 'hub/post_detail.html'
 
