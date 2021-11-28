@@ -6,6 +6,7 @@
         <li>{{post.author}}</li>
         <li>{{post.text}}</li>
         <li>{{post.created_date}}</li>
+        <li><a href="{% url 'post_detail' post.pk %}">Read Post</a></li>
     {%endfor%}
 </ul>
 {%endblock%}
