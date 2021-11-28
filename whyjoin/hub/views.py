@@ -1,5 +1,6 @@
 """ This module contains all of the views for the Hub app """
 from django.shortcuts import render
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView, DetailView, CreateView
 
 from .models import Comments, Post
@@ -39,7 +40,11 @@ class PostDetailView(DetailView):
         return context
 
 
-class CreatePostView(CreateView):
+class CreatePostView(LoginRequiredMixin, CreateView):
 
     model = Post
     fields = ['title', 'text']
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
