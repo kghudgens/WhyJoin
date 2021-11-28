@@ -1,6 +1,6 @@
 """ This module contains all of the views for the Hub app """
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, CreateView
 
 from .models import Comments, Post
 
@@ -37,3 +37,9 @@ class PostDetailView(DetailView):
         context = super().get_context_data(**kwargs)
         context["comments"] = Comments.objects.all()
         return context
+
+
+class CreatePostView(CreateView):
+
+    model = Post
+    fields = ['title', 'text']
