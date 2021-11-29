@@ -1,0 +1,12 @@
+{% extends "hub/base.html" %} 
+{% load crispy_forms_tags %}
+{% block content %}
+
+<form method="POST">
+    {% csrf_token%}
+    {{form|crispy}}
+    <button class="btn btn-primary" type="submit">Register</button>
+</form>
+<p class="text-center"> If you already have an account, <a href="{% url 'login'%}">Log In</a> instead.</p>
+
+{%endblock%}
