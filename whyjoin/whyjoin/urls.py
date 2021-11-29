@@ -23,6 +23,7 @@ from user import views as user_views
 urlpatterns = [
     path("", include("hub.urls")),
     path("community/", include("community.urls")),
+    path("user/", include("user.urls")),
     path('admin/', admin.site.urls),
     path('login/', user_views.Login.as_view(), name='login'),
     path('logout/', user_views.Logout.as_view(), name="logout")
