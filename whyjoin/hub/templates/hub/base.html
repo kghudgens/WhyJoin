@@ -45,26 +45,32 @@
             <li class="nav-item">
               <a class="nav-link" href="#">Discussion</a>
             </li>
+           
+          </ul>
+         
+
             {% if user.is_authenticated%}
-            <div class="dropdown">
-              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Profile
-              </button>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">Profile </a>
-                <a class="dropdown-item" href="{%url 'write_post'%}">Write</a>
-                <a class="dropdown-item" href="{%url 'logout'%}">Log Out</a>
-              </div>
+                      <!-- Beginning of drop down profile picture -->
+
+             <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Profile
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="#">Profile </a>
+              <a class="dropdown-item" href="{%url 'write_post'%}">Write</a>
+              <a class="dropdown-item" href="{%url 'logout'%}">Log Out</a>
             </div>
+          </div>
             {%else%}
             <li class="nav-item">
               <a class="nav-link" href="{%url 'login' %}">Log In</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Register</a>
+              <a class="nav-link" href="{% url 'register' %}">Register</a>
             </li>
             {%endif%}
-          </ul>
+
         </div>
       </div>
     </nav>
