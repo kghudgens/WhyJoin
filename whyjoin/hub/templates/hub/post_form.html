@@ -3,10 +3,12 @@
 {% block content %}
 
 <div class="container">
-    <h1>Write New Post </h1>
+    <h1 class="text-center">Write New Post </h1>
     <form method="POST">
         {% csrf_token%}
         {{form|crispy}}
+        <br>
+        <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </div>
 
