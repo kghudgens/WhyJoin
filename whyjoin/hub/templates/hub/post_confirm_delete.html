@@ -2,6 +2,7 @@
 {% block content %}
 
 <form action="POST">
+    {%csrf_token %}
     <p>Are you sure you want to delete</p>
     <input type="submit" value="Confirm">
 </form>
