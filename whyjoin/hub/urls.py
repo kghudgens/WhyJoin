@@ -8,5 +8,6 @@ urlpatterns = [
     path("about/", views.about, name="about"),
     path("blog", views.PostListView.as_view(), name="post_list"),
     path("blog/<int:pk>", views.PostDetailView.as_view(), name="post_detail"),
-    path("blog/write", views.CreatePostView.as_view(), name="write_post")
+    path("blog/write", views.CreatePostView.as_view(), name="write_post"),
+    path("<pk>/delete/", views.DeletePostView.as_view(), name="delete_post")
 ]
