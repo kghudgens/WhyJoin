@@ -1,7 +1,8 @@
 """ This module contains all of the views for the Hub app """
 from django.shortcuts import render
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views.generic import ListView, DetailView, CreateView
+from django.views.generic import ListView, DetailView, CreateView, DeleteView
+from django.urls import reverse, reverse_lazy
 
 from .models import Comments, Post
 
@@ -48,3 +49,12 @@ class CreatePostView(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
+
+    def get_success_url(self):
+        return reverse("post_detail/<int:pk>")
+
+
+class DeletePostView(DeleteView):
+
+    model = Post
+    success_url = reverse_lazy('post_list')
