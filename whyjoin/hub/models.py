@@ -15,7 +15,7 @@ class Post(models.Model):
     created_date = models.DateTimeField(default=timezone.now())
 
     class Meta:
-        ordering = ["created_date"]
+        ordering = ["-created_date"]
 
     def __str__(self):
         return f'Author : {self.author} Post : {self.title}'
