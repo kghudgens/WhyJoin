@@ -17,65 +17,53 @@
   </head>
   <body>
     <!-- Navbar -->
-    <nav
-      class="navbar navbar-expand navbar-dark bg-dark"
-      aria-label="Second navbar example"
-    >
-      <div class="container-fluid">
-        <!-- Top of the navbar -->
-        <!-- Why Join banner link -->
-        <a class="navbar-brand" href="{% url 'index' %}">WJ</a>
 
-        <!-- Profile button -->
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <a class="navbar-brand" href="{% url 'index' %}">WJ</a>
+        </div>
         {% if user.is_authenticated %}
-        <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Profile
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#">Profile </a>
-            <a class="dropdown-item" href="{%url 'write_post'%}">Write</a>
-            <a class="dropdown-item" href="{%url 'logout'%}">Log Out</a>
+        <div class="col">
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Profile
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="#">Profile </a>
+              <a class="dropdown-item" href="{%url 'write_post'%}">Write</a>
+              <a class="dropdown-item" href="{%url 'logout'%}">Log Out</a>
+            </div>
           </div>
-        </div>
+                </div>
         {% else %}
-        <li class="nav-item">
+        <div class="col">
           <a class="nav-link" href="{% url 'register' %}">Create Account</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{%url 'login' %}">Log in</a>
-        </li>
-      
-        {% endif %}
-
-        <!-- Navbar items -->
-        <div class="collapse navbar-collapse" id="navbarsExample02">
-          <ul class="navbar-nav me-auto">
-            <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="{% url 'index' %}"
-                >Home</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="{%url 'post_list'%}"
-                >Blog</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Community</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'about' %}">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Discussion</a>
-            </li>
-           
-          </ul>
-
         </div>
+        <div class="col">
+          <a class="nav-link" href="{%url 'login' %}">Log in</a>
+        </div>
+        {% endif %}
       </div>
-    </nav>
+      <!-- Second row of navbar -->
+      <div class="row">
+        <div class="col">
+          <a class="nav-link" aria-current="page" href="{%url 'post_list'%}"
+                >Blog</a>
+        </div>
+        <div class="col">
+          <a class="nav-link" href="{% url 'about' %}">What is Why Join?</a>        
+        </div>
+        <div class="col">
+            <a class="nav-link" href="#">Forum</a>
+        </div>
+        <div class="col">
+          <a class="nav-link" href="#">Community</a>
+      </div>
+      </div>
+    </div>
+
+
     <!-- Code block -->
     {%block content%}{%endblock%}
 
