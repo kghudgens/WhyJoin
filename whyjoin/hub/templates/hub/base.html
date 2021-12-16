@@ -14,6 +14,7 @@
       crossorigin="anonymous"
     />
     
+    <link rel="stylesheet" type="text/css" href="{% static 'hub/style.css' %}">
     <title>Why Join</title>
   </head>
   <body>
@@ -23,7 +24,7 @@
       <!-- Beginning of first row -->
       <div class="row">
         <!-- Brand WJ link -->
-        <div class="col-9">
+        <div class="col-7">
           <a class="navbar-brand" href="{% url 'index' %}">WJ</a>
         </div>
         <!-- If the user is authenticated show the profile button if not show the register and log in routes -->
@@ -41,7 +42,7 @@
           </div>
                 </div>
         {% else %}
-        <div class="col">
+        <div class="col nowrap">
           <ul>
             <li>          
               <a class="nav-link" href="{% url 'register' %}">Create Account</a>
