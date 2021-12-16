@@ -22,8 +22,33 @@
       aria-label="Second navbar example"
     >
       <div class="container-fluid">
-        <a class="navbar-brand" href="{% url 'index' %}">Why Join</a>
+        <!-- Top of the navbar -->
+        <!-- Why Join banner link -->
+        <a class="navbar-brand" href="{% url 'index' %}">WJ</a>
 
+        <!-- Profile button -->
+        {% if user.is_authenticated %}
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Profile
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#">Profile </a>
+            <a class="dropdown-item" href="{%url 'write_post'%}">Write</a>
+            <a class="dropdown-item" href="{%url 'logout'%}">Log Out</a>
+          </div>
+        </div>
+        {% else %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'register' %}">Create Account</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{%url 'login' %}">Log in</a>
+        </li>
+      
+        {% endif %}
+
+        <!-- Navbar items -->
         <div class="collapse navbar-collapse" id="navbarsExample02">
           <ul class="navbar-nav me-auto">
             <li class="nav-item">
@@ -47,29 +72,6 @@
             </li>
            
           </ul>
-         
-
-            {% if user.is_authenticated%}
-                      <!-- Beginning of drop down profile picture -->
-
-             <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Profile
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="#">Profile </a>
-              <a class="dropdown-item" href="{%url 'write_post'%}">Write</a>
-              <a class="dropdown-item" href="{%url 'logout'%}">Log Out</a>
-            </div>
-          </div>
-            {%else%}
-            <li class="nav-item">
-              <a class="nav-link" href="{%url 'login' %}">Log In</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'register' %}">Register</a>
-            </li>
-            {%endif%}
 
         </div>
       </div>
