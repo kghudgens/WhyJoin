@@ -1,4 +1,4 @@
-{%load static %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -13,16 +13,20 @@
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
+    
     <title>Why Join</title>
   </head>
   <body>
     <!-- Navbar -->
-
+<!-- Holder div of the navbar components -->
     <div class="container">
+      <!-- Beginning of first row -->
       <div class="row">
-        <div class="col">
+        <!-- Brand WJ link -->
+        <div class="col-9">
           <a class="navbar-brand" href="{% url 'index' %}">WJ</a>
         </div>
+        <!-- If the user is authenticated show the profile button if not show the register and log in routes -->
         {% if user.is_authenticated %}
         <div class="col">
           <div class="dropdown">
@@ -38,10 +42,16 @@
                 </div>
         {% else %}
         <div class="col">
-          <a class="nav-link" href="{% url 'register' %}">Create Account</a>
-        </div>
-        <div class="col">
-          <a class="nav-link" href="{%url 'login' %}">Log in</a>
+          <ul>
+            <li>          
+              <a class="nav-link" href="{% url 'register' %}">Create Account</a>
+            </li>
+            <li>
+              <a class="nav-link" href="{%url 'login' %}">Log in</a>
+            </li>
+          </ul>
+          <!-- <a class="nav-link" href="{% url 'register' %}">Create Account</a>
+          <a class="nav-link" href="{%url 'login' %}">Log in</a> -->
         </div>
         {% endif %}
       </div>
