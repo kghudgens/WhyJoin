@@ -1,5 +1,0 @@
-/* List in the application dont go to the next line automatically. ex. the navbar */
-li {
-    overflow: auto;
-    white-space: nowrap;
-  }
