@@ -1,14 +1,22 @@
-{% extends "hub/base.html" %} {% block content %}
+{% extends "hub/base.html" %} 
+{% block content %}
 <!-- Homepage message -->
 <div class="container">
   <div class="jumbotron jumbotron-fluid">
-    <div class="container">
-      <h1 class="display-4 text-center">Why Join</h1>
-      <p class="lead text-center">
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa assumenda
-        nemo accusamus saepe debitis provident eligendi aut fugit labore.
-        Tempore dolorem iste at quibusdam! Corporis.
+    <div class="container jumbo">
+      <h1 class="display-4 text-center">Why Should You Join</h1>
+    </div>
+      <div class="container">
+    <p class="lead text-center">
+        Communicate with real active duty service members and veteran to get a real understanding of military life. It's a life changing decision that should be made with real care.
       </p>
+      </div>
+      <div class="container text-center">
+        
+        <a href="{% url 'post_list' %}" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Read Posts</a>
+
+      </div>
+     
     </div>
   </div>
 </div>
