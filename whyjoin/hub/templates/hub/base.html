@@ -24,7 +24,7 @@
       <!-- Beginning of first row -->
       <div class="row">
         <!-- Brand WJ link -->
-        <div class="col-7">
+        <div class="col-8">
           <a class="navbar-brand" href="{% url 'index' %}">WJ</a>
         </div>
         <!-- If the user is authenticated show the profile button if not show the register and log in routes -->
@@ -42,17 +42,14 @@
           </div>
                 </div>
         {% else %}
-        <div class="col nowrap">
-          <ul>
-            <li>          
-              <a class="nav-link" href="{% url 'register' %}">Create Account</a>
-            </li>
-            <li>
-              <a class="nav-link" href="{%url 'login' %}">Log in</a>
-            </li>
-          </ul>
-          <!-- <a class="nav-link" href="{% url 'register' %}">Create Account</a>
-          <a class="nav-link" href="{%url 'login' %}">Log in</a> -->
+        <!-- columns for registration and logging in -->
+        <div class="col">
+          <a class="nav-link" href="{% url 'register' %}">Create Account</a>
+        </div>
+
+        <div class="col-auto">
+          <a class="nav-link" href="{%url 'login' %}">Log in</a>
+
         </div>
         {% endif %}
       </div>
