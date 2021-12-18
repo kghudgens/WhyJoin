@@ -22,7 +22,7 @@
 <!-- Holder div of the navbar components -->
     <div class="container">
       <!-- Beginning of first row -->
-      <div class="row">
+      <div class="row padding">
         <!-- Brand WJ link -->
         <div class="col-8">
           <a class="navbar-brand" href="{% url 'index' %}">WJ</a>
@@ -44,12 +44,11 @@
         {% else %}
         <!-- columns for registration and logging in -->
         <div class="col">
-          <a class="nav-link" href="{% url 'register' %}">Create Account</a>
+          <a href="{% url 'register' %}" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Create Account</a>
         </div>
 
         <div class="col-auto">
-          <a class="nav-link" href="{%url 'login' %}">Log in</a>
-
+          <a href="{% url 'login' %}" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Log In</a>
         </div>
         {% endif %}
       </div>
