@@ -1,20 +1,21 @@
 {% extends "hub/base.html" %} {% load crispy_forms_tags %}
 <!-- Login form -->
 {% block content %}
-<form method="post" action="{% url 'login' %}">
-  {% csrf_token %}
-  <table>
-    <tr>
-      <td>{{ form.username.label_tag }}</td>
-      <td>{{ form.username}}</td>
-    </tr>
-    <tr>
-      <td>{{ form.password.label_tag }}</td>
-      <td>{{ form.password }}</td>
-    </tr>
-  </table>
+<!-- Card holding log in form -->
+<div class="container ">
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Log in</h5>
+    <!-- The form  -->
+    <form method="POST">
+      {% csrf_token %}
+     {{form|crispy}}
+      <input type="submit" value="login" />
+    </form>
+  </div>
+</div>
+</div>
 
-  <input type="submit" value="login" />
-  <input type="hidden" name="next" value="{{ next }}" />
-</form>
+
+
 {%endblock%}
