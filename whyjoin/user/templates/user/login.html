@@ -2,15 +2,18 @@
 <!-- Login form -->
 {% block content %}
 <!-- Card holding log in form -->
-<div class="container ">
-<div class="card" style="width: 18rem;">
+<div class="container padding">
+<div class="card log-in-form" style="width: 32rem;">
   <div class="card-body">
-    <h5 class="card-title">Log in</h5>
+    <h5 class="card-title log-in-form-title">Log in</h5>
     <!-- The form  -->
     <form method="POST">
       {% csrf_token %}
      {{form|crispy}}
-      <input type="submit" value="login" />
+     <!-- Div for the button on the form -->
+     <div class="padding">
+      <input type="submit" value="Log in" />
+     </div>
     </form>
   </div>
 </div>

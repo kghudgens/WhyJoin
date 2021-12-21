@@ -16,3 +16,11 @@ padding-top: 10px;
 .cerulean{
     background-color: #9BB9D4;
 }
+
+.log-in-form{
+    margin: 0 auto;
+}
+
+.log-in-form-title{
+    text-align: center;
+}
