@@ -11,14 +11,25 @@ from .models import Profile
 
 
 class Login(LoginView):
+    """ 
+    Class represents the view that logs in the user. Inherits from Django Generic LoginView and is provided the form to log in from django.
+    """
     template_name = 'user/login.html'
 
 
 class Logout(LogoutView):
+    """
+    Class represents the view that logs the user out of the application. 
+    Inherits from the Django Generic LogoutView and is provided the form from Django.
+    """
     template_name = 'user/logout.html'
 
 
 def register_request(request):
+    """
+    Method that passes the registration form to its appropriate template with a
+    POST method to save to the PostgreSQL DB.
+    """
     if request.method == "POST":
         form = NewUser(request.POST)
         if form.is_valid():
@@ -33,6 +44,10 @@ def register_request(request):
 
 @login_required
 def profile(request, user_id):
+    """
+    Method requests the logged in user and displays it to the template for the 
+    frontend.
+    """
     profile = User.objects.get(id=user_id)
     context = {"profile": profile}
     return render(request, "user/profile.html", context)
