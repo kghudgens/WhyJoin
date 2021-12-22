@@ -31,8 +31,8 @@ def register_request(request):
     return render(request, "user/register.html", {"form": form})
 
 
-# @login_required
-# def profile(request):
-#     profile = Profile.objects.get(request.user)
-#     context = {"profile": profile}
-#     return render(request, "user/profile.html", context)
+@login_required
+def profile(request, user_id):
+    profile = User.object.get(id=user_id)
+    context = {"profile": profile}
+    return render(request, "user/profile.html", context)
