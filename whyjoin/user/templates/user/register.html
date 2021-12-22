@@ -3,13 +3,20 @@
 {% block content %}
 
 <div class="container">
-  <form method="POST">
-    {% csrf_token%}
-    {{ form|crispy }}
-    <button class="btn btn-primary" type="submit">Register</button>
-  </form>
- <p class="text-center"> If you already have an account, <a href="{% url 'login'%}">Log In</a> instead.</p>
- 
+  <div class="card">
+    <div class="card-tile log-in-form-title">
+      <h5>Create Account </h5>
+    </div>
+    <div class="card-body">
+      <form method="POST">
+        {% csrf_token%}
+        {{ form|crispy }}
+        <button class="btn btn-primary" type="submit">Register</button>
+      </form>
+     <p class="text-center"> If you already have an account, <a href="{% url 'login'%}">Log In</a> instead.</p>
+     
+    </div>
+  </div>
 </div>
 
 
