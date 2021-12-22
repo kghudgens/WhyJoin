@@ -35,7 +35,7 @@
               Profile
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="#">Profile </a>
+              <a class="dropdown-item" href="{% url 'profile' user_id=user.id %}">Profile </a>
               <a class="dropdown-item" href="{%url 'write_post'%}">Write</a>
               <a class="dropdown-item" href="{%url 'logout'%}">Log Out</a>
             </div>
