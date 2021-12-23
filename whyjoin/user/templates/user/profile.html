@@ -1,0 +1,13 @@
+{% extends "hub/base.html" %} {% load crispy_forms_tags %}
+
+{% block content %}
+{{user.username}} 
+{{user.first_name}}
+{{user.last_name}}
+
+<form method="POST">
+    {%csrf_token%}
+    {{uform|crispy}}
+    <input type="submit" value="Update User">
+</form>
+{%endblock%}
