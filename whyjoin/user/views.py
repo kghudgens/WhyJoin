@@ -6,7 +6,7 @@ from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
-from .forms import NewUser
+from .forms import NewUser, UserForm
 from .models import Profile
 
 
@@ -48,6 +48,13 @@ def profile(request, user_id):
     Method requests the logged in user and displays it to the template for the 
     frontend.
     """
+    if request.method == "POST":
+        uform = UserForm(request.POST)
+        # pform =
+        if uform.is_valid():  # add the pform here with an and statement
+            user = uform.save()
+    else:
+        uform = UserForm()
     profile = User.objects.get(id=user_id)
-    context = {"profile": profile}
+    context = {"profile": profile, "uform": uform}
     return render(request, "user/profile.html", context)
