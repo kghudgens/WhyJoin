@@ -1,13 +1,28 @@
 {% extends "hub/base.html" %} {% load crispy_forms_tags %}
 
 {% block content %}
-{{user.username}} 
-{{user.first_name}}
-{{user.last_name}}
 
-<form method="POST">
-    {%csrf_token%}
-    {{uform|crispy}}
-    <input type="submit" value="Update User">
-</form>
+<div class="container mt-4 mb-4 p-3 d-flex justify-content-center">
+    <div class="card p-4">
+        <!-- Filler image in the header -->
+        <div class=" image d-flex flex-column justify-content-center align-items-center"> <button class="btn btn-secondary"> <img src="https://i.imgur.com/wvxPV9S.png" height="100" width="100" /></button> <span class="name mt-3">{{user.first_name}} {{user.last_name}}</span> <span class="idd">{{user.username}}</span>
+            <div class=" d-flex mt-2"> <button class="btn1 btn-dark">Edit Profile</button> </div>
+            <!-- Profile about  -->
+            <div class="text mt-3"> <span>Eleanor Pena is a creator of minimalistic x bold graphics and digital artwork.<br><br> Artist/ Creative Director by Day #NFT minting@ with FND night. </span> </div>
+            <!-- Profile title -->
+            <div class="gap-3 mt-3 icons d-flex flex-row justify-content-center align-items-center"> <span><i class="fa fa-twitter"></i></span> <span><i class="fa fa-facebook-f"></i></span> <span><i class="fa fa-instagram"></i></span> <span><i class="fa fa-linkedin"></i></span> </div>
+            <div class=" px-2 rounded mt-4 date "> <span class="join">Joined {{user.date_joined}}</span> </div>
+        </div>
+    </div>
+</div>
+
+
+    <div class="container">
+        <form method="POST">
+            {%csrf_token%}
+            {{uform|crispy}}
+            <input type="submit" value="Update User">
+        </form>
+    </div>
+
 {%endblock%}
