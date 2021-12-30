@@ -1,3 +1,6 @@
+"""
+Module contains the forms to create a new user and update the users django profile. 
+"""
 from django import forms
 from django.db.models import fields
 from django.forms import ModelForm
@@ -22,6 +25,8 @@ class NewUser(UserCreationForm):
 
 
 class UserForm(forms.ModelForm):
+    username = forms.CharField(required=False)
+
     class Meta:
         model = User
         fields = ["first_name", "last_name", "username", "email"]
