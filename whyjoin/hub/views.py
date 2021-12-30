@@ -46,7 +46,9 @@ class PostDetailView(DetailView):
 
 
 class CreatePostView(LoginRequiredMixin, CreateView):
-
+    """
+    Class based view that grants a logged in user the permissions to create a new post.
+    """
     model = Post
     fields = ['title', 'text']
 
@@ -58,7 +60,10 @@ class CreatePostView(LoginRequiredMixin, CreateView):
 
 
 class DeletePostView(LoginRequiredMixin, DeleteView):
-
+    """
+    Class based view that allows the author of a particular post delete it if 
+    they choose to.
+    """
     model = Post
     success_url = reverse_lazy('post_list')
 
