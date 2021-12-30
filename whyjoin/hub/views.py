@@ -9,7 +9,11 @@ from .models import Comments, Post
 
 def index(request):
     """ This view serves as the home page for the Why Join App """
-    return render(request, "hub/index.html")
+
+    blog_post = Post.objects.all()[:3]
+
+    context = {"blog_post": blog_post}
+    return render(request, "hub/index.html", context)
 
 
 def about(request):
