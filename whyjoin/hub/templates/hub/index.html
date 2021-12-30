@@ -27,10 +27,31 @@
     <div class="col-lg">
       <!-- Main content -->
       <h5>Blog</h5>
+
+      {%for blog in blog_post%}
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">{{blog.title}}</h5>
+                <p class="card-text">{{blog.author}}</p>
+                <p class="card-text">{{blog.created_date}}</p>
+
+                <p class="card-text">{{blog.text}}</p>
+                <a href="#" class="btn btn-primary">Read</a>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+      </div>
+      
+      {%endfor%}
     </div>
     <div class="col">
       <!-- side bar content -->
-      <h5>Related Content</h5>
+      <h5>Community Posts</h5>
     </div>
   </div>
 </div>
