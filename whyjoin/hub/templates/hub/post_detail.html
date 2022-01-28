@@ -2,12 +2,15 @@
 {% block content %}
 
 <div class="container">
+
         {% if user.is_authenticated %}
                 <div class="container">
                         <a href="{% url 'delete_post' post.id %}">Delete</a>
                 </div>
         {% endif %}
+
         <div class='container'>
+                <img src="{{ post.images.url }}" alt="TooNorth">
                 <h2>{{ post.title }}</h2>
                 <h4 class="mb-2 text-muted">{{ post.author }}</h4>
                 <h4 class="mb-2 text-muted">{{ post.created_date }}</h4>
@@ -15,4 +18,4 @@
         </div>
 </div>
 
-{%endblock%}
+{% endblock %}
