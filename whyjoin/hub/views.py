@@ -50,7 +50,7 @@ class CreatePostView(LoginRequiredMixin, CreateView):
     Class based view that grants a logged in user the permissions to create a new post.
     """
     model = Post
-    fields = ['title', 'text']
+    fields = ['title', 'text', 'images']
 
     success_url = reverse_lazy('post_list')
 
