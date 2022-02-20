@@ -9,21 +9,19 @@
   </div>
   </div>
 
-
+<div class="container d-flex justify-content-center">
 {% for post in object_list %}
-<div class="container">
 <div class="card" style="width: 18rem;">
     <div class="card-body">
       <h5 class="card-title">{{ post.title }}</h5>
       <h6 class="card-subtitle mb-2 text-muted">{{ post.author }}</h6>
       <h6 class="card-subtitle mb-2 text-muted">{{ post.created_date }}</h6>
       <p class="card-text">{{ post.text|truncatewords:5 }}</p>
-      <a href="{% url 'post_detail' post.pk %}" class="card-link">Read Post</a>
+      <a href="{% url 'post_detail' post.pk %}" class="btn btn-primary">Read Post</a>
     </div>
   </div>
-</div>
 
 {% endfor %}
 </div>
-
+</div>
 {%endblock%}
