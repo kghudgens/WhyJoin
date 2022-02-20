@@ -1,7 +1,7 @@
 """ This module contains all of the views for the Hub app """
 from django.shortcuts import render
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views.generic import ListView, DetailView, CreateView, DeleteView
+from django.views.generic import ListView, DetailView, CreateView, DeleteView, UpdateView
 from django.urls import reverse_lazy
 
 from .models import Comments, Post
@@ -70,3 +70,14 @@ class DeletePostView(LoginRequiredMixin, DeleteView):
     def test_func(self):
         self.object = self.get_object()
         return self.request.user == self.object.author
+
+
+class UpdatePostView(LoginRequiredMixin, UpdateView):
+    """
+    Class based view that gives the user that created the post the ability to 
+    update their previously created blog post object.
+    """
+
+    model = Post
+    fields = ['title', 'text', 'images']
+    template_suffix = '_update_form'
