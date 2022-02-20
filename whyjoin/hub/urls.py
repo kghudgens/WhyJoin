@@ -9,5 +9,6 @@ urlpatterns = [
     path("blog", views.PostListView.as_view(), name="post_list"),
     path("blog/<int:pk>", views.PostDetailView.as_view(), name="post_detail"),
     path("blog/write", views.CreatePostView.as_view(), name="write_post"),
-    path("<pk>/delete/", views.DeletePostView.as_view(), name="delete_post")
+    path("post/<int:pk>/delete/", views.DeletePostView.as_view(), name="delete_post"),
+    path("blog/<int:pk>/update/", views.UpdatePostView.as_view(), name="update_post")
 ]
